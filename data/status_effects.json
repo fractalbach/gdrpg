@@ -1,0 +1,78 @@
+{
+  "status_effects": [
+    {
+      "id": "burn",
+      "name": "Burn",
+      "description": "Takes fire damage over time.",
+      "duration": 6.0,
+      "tick_interval": 1.0,
+      "max_stacks": 3,
+      "stack_rule": "add_stacks",
+      "buff": false,
+      "on_tick": [
+        { "type": "damage", "base": 8, "coeff": 0, "spell": false, "damage_type": "fire", "can_crit": false }
+      ]
+    },
+    {
+      "id": "chill",
+      "name": "Chill",
+      "description": "Movement and action speed reduced.",
+      "duration": 4.0,
+      "tick_interval": 1.0,
+      "max_stacks": 1,
+      "stack_rule": "refresh",
+      "buff": false,
+      "speed_multiplier": 0.7
+    },
+    {
+      "id": "stun",
+      "name": "Stun",
+      "description": "Cannot act.",
+      "duration": 2.0,
+      "tick_interval": 1.0,
+      "max_stacks": 1,
+      "stack_rule": "refresh",
+      "stun": true,
+      "buff": false
+    },
+    {
+      "id": "battle_cry",
+      "name": "Battle Cry",
+      "description": "Increased attack power.",
+      "duration": 8.0,
+      "tick_interval": 1.0,
+      "max_stacks": 1,
+      "stack_rule": "refresh",
+      "buff": true,
+      "stat_mods": [
+        { "stat": "attack", "op": "flat", "amount": 15 }
+      ]
+    },
+    {
+      "id": "poison",
+      "name": "Poison",
+      "description": "Takes poison damage over time.",
+      "duration": 8.0,
+      "tick_interval": 1.0,
+      "max_stacks": 5,
+      "stack_rule": "add_stacks",
+      "buff": false,
+      "on_tick": [
+        { "type": "damage", "base": 5, "coeff": 0, "damage_type": "poison", "can_crit": false }
+      ]
+    },
+    {
+      "id": "arcane_shield",
+      "name": "Arcane Shield",
+      "description": "Increased defense.",
+      "duration": 6.0,
+      "tick_interval": 1.0,
+      "max_stacks": 1,
+      "stack_rule": "refresh",
+      "buff": true,
+      "stat_mods": [
+        { "stat": "defense", "op": "flat", "amount": 20 }
+      ]
+    }
+  ]
+}

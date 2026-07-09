@@ -1,0 +1,2 @@
+# Placeholder — GDExtension binaries are written here by CMake when
+# GDRPG_BUILD_EXTENSION=ON (gdrpg.dll / libgdrpg.so / libgdrpg.dylib).

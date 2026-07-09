@@ -1,0 +1,53 @@
+{
+  "persistent_entities": [
+    {
+      "id": "magma_ball",
+      "name": "Magma Ball",
+      "lifetime": 4.0,
+      "tick_interval": 1.0,
+      "initial_delay": 0.5,
+      "retarget": "single_enemy",
+      "destroy_on_owner_death": true,
+      "on_tick": [
+        { "type": "damage", "base": 12, "coeff": 0.15, "spell": true, "damage_type": "fire", "can_crit": false }
+      ]
+    },
+    {
+      "id": "ice_shard",
+      "name": "Ice Shard",
+      "lifetime": 3.0,
+      "tick_interval": 0.8,
+      "initial_delay": 0.6,
+      "retarget": "random_enemy",
+      "destroy_on_owner_death": true,
+      "on_tick": [
+        { "type": "damage", "base": 18, "coeff": 0.2, "spell": true, "damage_type": "ice", "can_crit": true },
+        { "type": "apply_status", "status": "chill", "duration": 2.0 }
+      ]
+    },
+    {
+      "id": "burning_ground",
+      "name": "Burning Ground",
+      "lifetime": 5.0,
+      "tick_interval": 1.0,
+      "initial_delay": 0.0,
+      "retarget": "all_enemies",
+      "destroy_on_owner_death": false,
+      "on_tick": [
+        { "type": "damage", "base": 10, "coeff": 0.1, "spell": true, "damage_type": "fire", "can_crit": false }
+      ]
+    },
+    {
+      "id": "lightning_orb",
+      "name": "Lightning Orb",
+      "lifetime": 6.0,
+      "tick_interval": 1.2,
+      "initial_delay": 0.3,
+      "retarget": "random_enemy",
+      "destroy_on_owner_death": true,
+      "on_tick": [
+        { "type": "damage", "base": 22, "coeff": 0.25, "spell": true, "damage_type": "lightning", "can_crit": true }
+      ]
+    }
+  ]
+}

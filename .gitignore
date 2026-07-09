@@ -1,0 +1,49 @@
+# Build
+build/
+cmake-build-*/
+out/
+.vs/
+.vscode/
+*.user
+*.suo
+CMakeUserPresets.json
+compile_commands.json
+
+# IDE / OS
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Godot
+godot_example/.godot/
+godot_example/.import/
+*.translation
+export_presets.cfg
+
+# Extension artifacts
+extension/bin/
+*.dll
+*.so
+*.dylib
+*.obj
+*.o
+*.a
+*.lib
+*.pdb
+*.exp
+
+# godot-cpp (fetched or submodule)
+extension/godot-cpp/
+
+# Python / misc
+__pycache__/
+*.pyc
+.venv/
+
+# Test / coverage
+Testing/
+coverage/
+*.gcda
+*.gcno

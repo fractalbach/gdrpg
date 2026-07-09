@@ -1,0 +1,75 @@
+{
+  "items": [
+    {
+      "id": "iron_sword",
+      "name": "Iron Sword",
+      "description": "A sturdy blade.",
+      "slot": "weapon",
+      "stat_mods": [
+        { "stat": "attack", "op": "flat", "amount": 12 }
+      ]
+    },
+    {
+      "id": "flame_staff",
+      "name": "Flame Staff",
+      "description": "Channels fire magic. Grants Fireball.",
+      "slot": "weapon",
+      "stat_mods": [
+        { "stat": "spell_power", "op": "flat", "amount": 18 },
+        { "stat": "max_mana", "op": "flat", "amount": 30 }
+      ],
+      "granted_abilities": ["fireball"]
+    },
+    {
+      "id": "frost_wand",
+      "name": "Frost Wand",
+      "description": "Icy focus. Grants Ice Blast.",
+      "slot": "weapon",
+      "stat_mods": [
+        { "stat": "spell_power", "op": "flat", "amount": 15 }
+      ],
+      "granted_abilities": ["ice_blast"]
+    },
+    {
+      "id": "leather_armor",
+      "name": "Leather Armor",
+      "description": "Light protection.",
+      "slot": "chest",
+      "stat_mods": [
+        { "stat": "defense", "op": "flat", "amount": 8 },
+        { "stat": "max_hp", "op": "flat", "amount": 40 }
+      ]
+    },
+    {
+      "id": "dragon_scale_mail",
+      "name": "Dragon Scale Mail",
+      "description": "Heavy scales from a lesser dragon.",
+      "slot": "chest",
+      "stat_mods": [
+        { "stat": "defense", "op": "flat", "amount": 25 },
+        { "stat": "max_hp", "op": "flat", "amount": 100 },
+        { "stat": "attack", "op": "flat", "amount": 5 }
+      ]
+    },
+    {
+      "id": "ring_of_haste",
+      "name": "Ring of Haste",
+      "description": "Increases action speed.",
+      "slot": "accessory1",
+      "stat_mods": [
+        { "stat": "speed", "op": "flat", "amount": 20 },
+        { "stat": "crit_chance", "op": "flat", "amount": 0.05 }
+      ]
+    },
+    {
+      "id": "summoner_tome",
+      "name": "Summoner's Tome",
+      "description": "Grants the ability to summon a fire imp.",
+      "slot": "offhand",
+      "stat_mods": [
+        { "stat": "spell_power", "op": "flat", "amount": 8 }
+      ],
+      "granted_abilities": ["summon_imp"]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "creatures": [
+    {
+      "id": "warrior",
+      "name": "Warrior",
+      "team": "player",
+      "stats": {
+        "max_hp": 220,
+        "max_mana": 60,
+        "attack": 28,
+        "defense": 18,
+        "spell_power": 5,
+        "speed": 105,
+        "crit_chance": 0.08,
+        "crit_multiplier": 1.6
+      },
+      "abilities": ["slash", "power_strike", "battle_shout"],
+      "equipment": ["iron_sword", "leather_armor"]
+    },
+    {
+      "id": "mage",
+      "name": "Mage",
+      "team": "player",
+      "stats": {
+        "max_hp": 140,
+        "max_mana": 160,
+        "attack": 8,
+        "defense": 8,
+        "spell_power": 35,
+        "speed": 100,
+        "crit_chance": 0.1,
+        "crit_multiplier": 1.75
+      },
+      "abilities": ["arcane_bolt", "fireball", "ice_blast", "flame_wave", "shield", "heal"],
+      "equipment": ["flame_staff", "ring_of_haste"]
+    },
+    {
+      "id": "goblin",
+      "name": "Goblin",
+      "team": "enemy",
+      "stats": {
+        "max_hp": 70,
+        "max_mana": 20,
+        "attack": 14,
+        "defense": 4,
+        "spell_power": 2,
+        "speed": 120,
+        "crit_chance": 0.12,
+        "crit_multiplier": 1.5
+      },
+      "abilities": ["goblin_stab"]
+    },
+    {
+      "id": "goblin_shaman",
+      "name": "Goblin Shaman",
+      "team": "enemy",
+      "stats": {
+        "max_hp": 90,
+        "max_mana": 80,
+        "attack": 6,
+        "defense": 5,
+        "spell_power": 22,
+        "speed": 95,
+        "crit_chance": 0.05,
+        "crit_multiplier": 1.5
+      },
+      "abilities": ["arcane_bolt", "ice_blast", "heal"]
+    },
+    {
+      "id": "dragon",
+      "name": "Ancient Dragon",
+      "team": "enemy",
+      "stats": {
+        "max_hp": 800,
+        "max_mana": 200,
+        "attack": 45,
+        "defense": 30,
+        "spell_power": 40,
+        "speed": 90,
+        "crit_chance": 0.1,
+        "crit_multiplier": 1.8
+      },
+      "abilities": ["dragon_claw", "dragon_breath", "flame_wave"],
+      "equipment": ["dragon_scale_mail"]
+    },
+    {
+      "id": "fire_imp",
+      "name": "Fire Imp",
+      "team": "player",
+      "stats": {
+        "max_hp": 50,
+        "max_mana": 40,
+        "attack": 5,
+        "defense": 2,
+        "spell_power": 18,
+        "speed": 130,
+        "crit_chance": 0.15,
+        "crit_multiplier": 1.5
+      },
+      "abilities": ["imp_scorch"]
+    },
+    {
+      "id": "summoner",
+      "name": "Summoner",
+      "team": "player",
+      "stats": {
+        "max_hp": 130,
+        "max_mana": 180,
+        "attack": 6,
+        "defense": 7,
+        "spell_power": 30,
+        "speed": 98,
+        "crit_chance": 0.08,
+        "crit_multiplier": 1.6
+      },
+      "abilities": ["arcane_bolt", "summon_imp", "shield"],
+      "equipment": ["frost_wand", "summoner_tome"]
+    }
+  ]
+}

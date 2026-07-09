@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        build_type: [Release]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Ninja (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+
+      - name: Install Ninja (Windows)
+        if: runner.os == 'Windows'
+        run: choco install ninja -y
+
+      - name: Configure
+        run: >
+          cmake -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          -DGDRPG_BUILD_DEMO=ON
+          -DGDRPG_BUILD_TESTS=ON
+          -DGDRPG_BUILD_EXTENSION=OFF
+
+      - name: Build
+        run: cmake --build build --config ${{ matrix.build_type }}
+
+      - name: Test
+        run: ctest --test-dir build --output-on-failure -C ${{ matrix.build_type }}
+
+      - name: Run demo
+        shell: bash
+        run: |
+          if [ -f build/demo/gdrpg_demo ]; then
+            ./build/demo/gdrpg_demo
+          elif [ -f build/demo/gdrpg_demo.exe ]; then
+            ./build/demo/gdrpg_demo.exe
+          else
+            # Ninja may place binaries at build root depending on generator
+            find build -name 'gdrpg_demo*' -type f -executable 2>/dev/null | head -1 | xargs -I{} {}
+          fi

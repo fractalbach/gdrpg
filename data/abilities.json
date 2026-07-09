@@ -1,0 +1,183 @@
+{
+  "abilities": [
+    {
+      "id": "slash",
+      "name": "Slash",
+      "description": "A basic melee strike.",
+      "cooldown": 1.5,
+      "mana_cost": 0,
+      "targeting": "single_enemy",
+      "damage_type": "physical",
+      "effects": [
+        { "type": "damage", "base": 15, "coeff": 1.0, "spell": false, "damage_type": "physical" }
+      ]
+    },
+    {
+      "id": "power_strike",
+      "name": "Power Strike",
+      "description": "Heavy blow that can stun.",
+      "cooldown": 6.0,
+      "mana_cost": 15,
+      "targeting": "single_enemy",
+      "damage_type": "physical",
+      "effects": [
+        { "type": "damage", "base": 35, "coeff": 1.4, "spell": false, "damage_type": "physical" },
+        { "type": "apply_status", "status": "stun", "duration": 1.5 }
+      ]
+    },
+    {
+      "id": "battle_shout",
+      "name": "Battle Shout",
+      "description": "Inspire yourself with a battle cry.",
+      "cooldown": 12.0,
+      "mana_cost": 20,
+      "targeting": "self",
+      "effects": [
+        { "type": "apply_status", "status": "battle_cry", "duration": 8.0 },
+        { "type": "heal", "base": 20, "coeff": 0.2, "spell": false }
+      ]
+    },
+    {
+      "id": "fireball",
+      "name": "Fireball",
+      "description": "Hurl a fireball that spawns magma balls.",
+      "cooldown": 5.0,
+      "mana_cost": 35,
+      "targeting": "single_enemy",
+      "damage_type": "fire",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 40, "coeff": 1.2, "spell": true, "damage_type": "fire" },
+        { "type": "apply_status", "status": "burn", "duration": 5.0, "stacks": 1 },
+        { "type": "spawn_persistent", "persistent": "magma_ball", "count": 3, "delay_between": 0.25 }
+      ]
+    },
+    {
+      "id": "ice_blast",
+      "name": "Ice Blast",
+      "description": "Freeze the target and launch ice shards at foes.",
+      "cooldown": 6.0,
+      "mana_cost": 40,
+      "targeting": "single_enemy",
+      "damage_type": "ice",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 35, "coeff": 1.0, "spell": true, "damage_type": "ice" },
+        { "type": "apply_status", "status": "chill", "duration": 4.0 },
+        { "type": "spawn_persistent", "persistent": "ice_shard", "count": 2, "delay_between": 0.4 }
+      ]
+    },
+    {
+      "id": "flame_wave",
+      "name": "Flame Wave",
+      "description": "Scorch all enemies and leave burning ground.",
+      "cooldown": 10.0,
+      "mana_cost": 50,
+      "targeting": "all_enemies",
+      "damage_type": "fire",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 25, "coeff": 0.8, "spell": true, "damage_type": "fire" },
+        { "type": "spawn_persistent", "persistent": "burning_ground", "count": 1 }
+      ]
+    },
+    {
+      "id": "arcane_bolt",
+      "name": "Arcane Bolt",
+      "description": "A quick arcane missile.",
+      "cooldown": 2.0,
+      "mana_cost": 12,
+      "targeting": "single_enemy",
+      "damage_type": "arcane",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 20, "coeff": 0.9, "spell": true, "damage_type": "arcane" }
+      ]
+    },
+    {
+      "id": "summon_imp",
+      "name": "Summon Fire Imp",
+      "description": "Summon a temporary fire imp ally.",
+      "cooldown": 20.0,
+      "mana_cost": 45,
+      "targeting": "self",
+      "effects": [
+        { "type": "summon", "creature": "fire_imp", "lifetime": 15.0, "count": 1 }
+      ]
+    },
+    {
+      "id": "goblin_stab",
+      "name": "Stab",
+      "description": "Quick poisoned stab.",
+      "cooldown": 1.2,
+      "mana_cost": 0,
+      "targeting": "single_enemy",
+      "damage_type": "physical",
+      "effects": [
+        { "type": "damage", "base": 10, "coeff": 0.8, "spell": false, "damage_type": "physical" },
+        { "type": "apply_status", "status": "poison", "duration": 4.0, "stacks": 1 }
+      ]
+    },
+    {
+      "id": "dragon_breath",
+      "name": "Dragon Breath",
+      "description": "Breathe fire on all enemies.",
+      "cooldown": 8.0,
+      "mana_cost": 30,
+      "targeting": "all_enemies",
+      "damage_type": "fire",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 50, "coeff": 1.0, "spell": true, "damage_type": "fire" },
+        { "type": "apply_status", "status": "burn", "duration": 4.0, "stacks": 2 }
+      ]
+    },
+    {
+      "id": "dragon_claw",
+      "name": "Dragon Claw",
+      "description": "Rending physical attack.",
+      "cooldown": 2.5,
+      "mana_cost": 0,
+      "targeting": "single_enemy",
+      "damage_type": "physical",
+      "effects": [
+        { "type": "damage", "base": 40, "coeff": 1.2, "spell": false, "damage_type": "physical" }
+      ]
+    },
+    {
+      "id": "heal",
+      "name": "Heal",
+      "description": "Restore health to an ally.",
+      "cooldown": 4.0,
+      "mana_cost": 25,
+      "targeting": "single_ally",
+      "effects": [
+        { "type": "heal", "base": 40, "coeff": 0.8, "spell": true }
+      ]
+    },
+    {
+      "id": "shield",
+      "name": "Arcane Shield",
+      "description": "Raise a defensive barrier.",
+      "cooldown": 10.0,
+      "mana_cost": 20,
+      "targeting": "self",
+      "effects": [
+        { "type": "apply_status", "status": "arcane_shield", "duration": 6.0 }
+      ]
+    },
+    {
+      "id": "imp_scorch",
+      "name": "Scorch",
+      "description": "Tiny fire bolt from an imp.",
+      "cooldown": 1.8,
+      "mana_cost": 5,
+      "targeting": "single_enemy",
+      "damage_type": "fire",
+      "uses_spell_power": true,
+      "effects": [
+        { "type": "damage", "base": 12, "coeff": 0.6, "spell": true, "damage_type": "fire" }
+      ]
+    }
+  ]
+}

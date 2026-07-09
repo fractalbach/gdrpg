@@ -1,0 +1,88 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default (core + demo + tests)",
+      "description": "Build pure C++ core, demo, and tests without Godot",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "GDRPG_BUILD_DEMO": "ON",
+        "GDRPG_BUILD_TESTS": "ON",
+        "GDRPG_BUILD_EXTENSION": "OFF"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "vs2022",
+      "displayName": "Visual Studio 2022",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/build/vs2022",
+      "cacheVariables": {
+        "GDRPG_BUILD_DEMO": "ON",
+        "GDRPG_BUILD_TESTS": "ON",
+        "GDRPG_BUILD_EXTENSION": "OFF"
+      }
+    },
+    {
+      "name": "extension",
+      "displayName": "With GDExtension",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/extension",
+      "cacheVariables": {
+        "GDRPG_BUILD_EXTENSION": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "vs2022",
+      "configurePreset": "vs2022",
+      "configuration": "Release"
+    },
+    {
+      "name": "extension",
+      "configurePreset": "extension"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}
