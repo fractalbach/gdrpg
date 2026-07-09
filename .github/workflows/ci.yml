@@ -40,14 +40,21 @@ jobs:
       - name: Test
         run: ctest --test-dir build --output-on-failure -C ${{ matrix.build_type }}
 
-      - name: Run demo
-        shell: bash
+      # Avoid Git Bash + find -executable + xargs on Windows (exit 127).
+      # Binary is gdrpg_demo on Unix and gdrpg_demo.exe on Windows.
+      - name: Run demo (Linux)
+        if: runner.os == 'Linux'
+        run: ./build/demo/gdrpg_demo ./data
+
+      - name: Run demo (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
         run: |
-          if [ -f build/demo/gdrpg_demo ]; then
-            ./build/demo/gdrpg_demo
-          elif [ -f build/demo/gdrpg_demo.exe ]; then
-            ./build/demo/gdrpg_demo.exe
-          else
-            # Ninja may place binaries at build root depending on generator
-            find build -name 'gdrpg_demo*' -type f -executable 2>/dev/null | head -1 | xargs -I{} {}
-          fi
+          $demo = "build/demo/gdrpg_demo.exe"
+          if (-not (Test-Path $demo)) {
+            throw "Demo executable not found: $demo"
+          }
+          & $demo "$PWD/data"
+          if ($LASTEXITCODE -ne 0) {
+            throw "Demo exited with code $LASTEXITCODE"
+          }

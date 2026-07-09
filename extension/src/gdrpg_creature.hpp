@@ -3,7 +3,8 @@
 #include <gdrpg/gdrpg.hpp>
 
 #include <godot_cpp/classes/ref_counted.hpp>
-#include <godot_cpp/variant/packed_string_array.hpp>
+#include <godot_cpp/core/class_db.hpp>
+#include <godot_cpp/variant/string.hpp>
 
 #include <memory>
 

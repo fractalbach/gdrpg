@@ -39,13 +39,28 @@ See [docs/design.md](docs/design.md) for details.
 
 ## Build (core + demo + tests)
 
+From the repo root (Windows):
+
+```powershell
+.\build.ps1              # configure + build (Release)
+.\build.ps1 -Test -Demo  # also run tests and the combat demo
+.\build.ps1 -Config Debug -Clean
+.\build.ps1 -Extension   # also build the Godot GDExtension
+```
+
+Or via the batch wrapper: `build.bat -Test -Demo`
+
+The script locates Visual Studio / CMake automatically when they are not on `PATH`.
+
+Manual CMake (any platform):
+
 ```bash
 cmake --preset default
 cmake --build --preset default
 ctest --preset default
 ```
 
-Or manually:
+Or:
 
 ```bash
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -53,33 +68,34 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-On Windows with Visual Studio:
-
-```bash
-cmake --preset vs2022
-cmake --build --preset vs2022
-```
-
 ### Run the demo
 
-```bash
-./build/default/demo/gdrpg_demo
-# or pass an explicit data path:
-./build/default/demo/gdrpg_demo ./data
+```powershell
+.\build.ps1 -Demo
+# or directly:
+.\build\demo\gdrpg_demo.exe .\data
 ```
 
 The demo runs three scripted fights (goblin skirmish, dragon boss, equipment swap) and prints a detailed combat log showing damage, status ticks, and persistent entity chains.
 
 ## Build GDExtension
 
+```powershell
+.\build.ps1 -Extension
+```
+
+Or manually:
+
 ```bash
 cmake --preset extension
 cmake --build --preset extension
 ```
 
-This fetches godot-cpp (Godot 4.3 stable tags by default) and writes the shared library into `godot_example/bin/`.
+This fetches godot-cpp and writes `gdrpg.dll` / `libgdrpg.so` into `godot_example/bin/`.
 
-Open `godot_example/` in Godot 4.3+. The sample scene loads `../data`, starts a battle, casts Fireball, and ticks with simple AI.
+Open `godot_example/` in **Godot 4.7+** (also works with 4.3+). The sample scene loads `../data`, starts a battle, casts Fireball, and ticks with simple AI.
+
+If Godot reports `configuration/entry_symbol` missing, ensure `godot_example/gdrpg.gdextension` uses the modern INI sections (`[configuration]` / `[libraries]`), not the old `[gd_resource]` format.
 
 ### GDScript usage
 

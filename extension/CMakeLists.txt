@@ -9,11 +9,16 @@ if(GDRPG_GODOT_CPP_PATH AND EXISTS "${GDRPG_GODOT_CPP_PATH}/CMakeLists.txt")
     message(STATUS "Using godot-cpp from ${GDRPG_GODOT_CPP_PATH}")
     add_subdirectory(${GDRPG_GODOT_CPP_PATH} ${CMAKE_BINARY_DIR}/godot-cpp)
 else()
+    # Target Godot 4.7+ via godot-cpp master (v10, api_version selectable).
+    # Override with -DGDRPG_GODOT_CPP_TAG=godot-4.5-stable (etc.) if needed.
+    set(GDRPG_GODOT_CPP_TAG "master" CACHE STRING "godot-cpp git tag/branch")
+    set(GODOTCPP_DISABLE_EXCEPTIONS OFF CACHE BOOL "" FORCE)
+
     include(FetchContent)
     FetchContent_Declare(
         godot-cpp
         GIT_REPOSITORY https://github.com/godotengine/godot-cpp.git
-        GIT_TAG        godot-4.3-stable
+        GIT_TAG        ${GDRPG_GODOT_CPP_TAG}
         GIT_SHALLOW    TRUE
     )
     FetchContent_MakeAvailable(godot-cpp)

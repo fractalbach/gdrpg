@@ -1,11 +1,10 @@
-[gd_resource type="GDExtension" format=3]
-
-[resource]
+[configuration]
 
 entry_symbol = "gdrpg_library_init"
 compatibility_minimum = "4.2"
-
 reloadable = true
+
+[libraries]
 
 linux.debug.x86_64 = "res://bin/libgdrpg.so"
 linux.release.x86_64 = "res://bin/libgdrpg.so"
